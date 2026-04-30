@@ -1,10 +1,12 @@
 
-# 🚗 Отчёт по проекту: прогнозирование цены автомобиля
+# 🚗 Отчёт по проекту: прогнозирование цены автомобиля 
 
+[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://appredictcarprice.streamlit.app/)
  **👉👉👉 Демонстрация работы предсказания модели**  
  
-   ▶ Записано видео  с последовательностью: открытие терминала → активация окружения → запуск сервера → отправка запроса → получение ответа.  
-   ▶ Видео приложено к репозиторию как `demo.gif`.
+   ▶ Записано видео  с последовательностью:  → отправка запроса → получение ответа.  
+   ▶ Видео работы FastApi  `https://cloud.mail.ru/public/r4Mj/zqe8YaQRc`.
+   ▶ Видео работы приложения Streamlit  `(https://cloud.mail.ru/public/TCKe/XVKRgmjRK)`.
 
 
 ## 1.  🔵  Что было сделано
