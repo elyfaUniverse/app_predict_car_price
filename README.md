@@ -2,14 +2,14 @@
 # 🚗 Отчёт по проекту: прогнозирование цены автомобиля 
 
 
-👉 Приложение нажми  на Streamlit [![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://appredictcarprice.streamlit.app/)
+👉 Приложение нажми  на Streamlit   [![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://appredictcarprice.streamlit.app/)
 
 ## Демо
 
 **👉👉👉 Демонстрация работы предсказания модели**
 
-- **FastAPI работа:**🔗 [Смотреть видео](https://cloud.mail.ru/public/r4Mj/zqe8YaQRc)
-- **Streamlit приложение:**🔗 [Смотреть видео](https://cloud.mail.ru/public/TCKe/XVKRgmjRK)
+- **FastAPI работа:**🔗 [Смотреть видео](https://cloud.mail.ru/public/TCKe/XVKRgmjRK) 
+- **Streamlit приложение:**🔗 [Смотреть видео](https://cloud.mail.ru/public/r4Mj/zqe8YaQRc) 
 
 ## 1.  🔵  Что было сделано
 
