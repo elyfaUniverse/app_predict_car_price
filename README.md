@@ -6,11 +6,11 @@
 
 ## Демо
 
-**👉👉👉 Демонстрация работы предсказания модели**
+##*Демонстрация работы предсказания модели*
 
-### FastAPI SCV работа:🔗 [Смотреть видео](https://cloud.mail.ru/public/ZKAp/ZWH2LjzD9)
-### FastAPI JSON работа: 🔗 [Смотреть видео](https://cloud.mail.ru/public/2C8j/q12xNSTAN) 
-### Streamlit приложение: 🔗 [Смотреть видео](https://cloud.mail.ru/public/r4Mj/zqe8YaQRc) 
+### 👉FastAPI SCV :🔗 [Смотреть видео](https://cloud.mail.ru/public/ZKAp/ZWH2LjzD9)
+### 👉FastAPI JSON : 🔗 [Смотреть видео](https://cloud.mail.ru/public/2C8j/q12xNSTAN) 
+### 👉Streamlit приложение: 🔗 [Смотреть видео](https://cloud.mail.ru/public/r4Mj/zqe8YaQRc) 
 
 ## 1.  🔵  Что было сделано
 
