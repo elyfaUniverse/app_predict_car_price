@@ -1,0 +1,363 @@
+{
+  "year_dependency": [
+    {
+      "year": 1995,
+      "price": -89262.26656673162,
+      "price_thousands": -89.26226656673161
+    },
+    {
+      "year": 1996,
+      "price": -56044.72124654334,
+      "price_thousands": -56.04472124654334
+    },
+    {
+      "year": 1997,
+      "price": -22827.175926355063,
+      "price_thousands": -22.827175926355064
+    },
+    {
+      "year": 1998,
+      "price": 10390.36939383333,
+      "price_thousands": 10.39036939383333
+    },
+    {
+      "year": 1999,
+      "price": 43607.91471402167,
+      "price_thousands": 43.60791471402167
+    },
+    {
+      "year": 2000,
+      "price": 76825.46003420994,
+      "price_thousands": 76.82546003420994
+    },
+    {
+      "year": 2001,
+      "price": 110043.00535439828,
+      "price_thousands": 110.04300535439828
+    },
+    {
+      "year": 2002,
+      "price": 143260.55067458662,
+      "price_thousands": 143.26055067458663
+    },
+    {
+      "year": 2003,
+      "price": 176478.0959947749,
+      "price_thousands": 176.4780959947749
+    },
+    {
+      "year": 2004,
+      "price": 209695.64131496323,
+      "price_thousands": 209.69564131496324
+    },
+    {
+      "year": 2005,
+      "price": 242913.1866351515,
+      "price_thousands": 242.9131866351515
+    },
+    {
+      "year": 2006,
+      "price": 276130.7319553398,
+      "price_thousands": 276.1307319553398
+    },
+    {
+      "year": 2007,
+      "price": 309348.27727552806,
+      "price_thousands": 309.34827727552806
+    },
+    {
+      "year": 2008,
+      "price": 342565.8225957164,
+      "price_thousands": 342.5658225957164
+    },
+    {
+      "year": 2009,
+      "price": 375783.36791590473,
+      "price_thousands": 375.7833679159047
+    },
+    {
+      "year": 2010,
+      "price": 409000.91323609307,
+      "price_thousands": 409.0009132360931
+    },
+    {
+      "year": 2011,
+      "price": 442218.4585562814,
+      "price_thousands": 442.2184585562814
+    },
+    {
+      "year": 2012,
+      "price": 475436.0038764697,
+      "price_thousands": 475.43600387646967
+    },
+    {
+      "year": 2013,
+      "price": 508653.549196658,
+      "price_thousands": 508.653549196658
+    },
+    {
+      "year": 2014,
+      "price": 541871.0945168464,
+      "price_thousands": 541.8710945168464
+    },
+    {
+      "year": 2015,
+      "price": 575088.6398370346,
+      "price_thousands": 575.0886398370346
+    },
+    {
+      "year": 2016,
+      "price": 608306.1851572229,
+      "price_thousands": 608.3061851572229
+    },
+    {
+      "year": 2017,
+      "price": 641523.7304774113,
+      "price_thousands": 641.5237304774113
+    },
+    {
+      "year": 2018,
+      "price": 674741.2757975996,
+      "price_thousands": 674.7412757975995
+    },
+    {
+      "year": 2019,
+      "price": 707958.8211177879,
+      "price_thousands": 707.9588211177878
+    },
+    {
+      "year": 2020,
+      "price": 741176.3664379761,
+      "price_thousands": 741.1763664379762
+    },
+    {
+      "year": 2021,
+      "price": 774393.9117581644,
+      "price_thousands": 774.3939117581644
+    },
+    {
+      "year": 2022,
+      "price": 807611.4570783529,
+      "price_thousands": 807.6114570783529
+    },
+    {
+      "year": 2023,
+      "price": 840829.0023985412,
+      "price_thousands": 840.8290023985412
+    },
+    {
+      "year": 2024,
+      "price": 874046.5477187296,
+      "price_thousands": 874.0465477187296
+    },
+    {
+      "year": 2025,
+      "price": 907264.0930389179,
+      "price_thousands": 907.2640930389178
+    }
+  ],
+  "km_dependency": [
+    {
+      "km_driven": 0,
+      "price": 635956.3003671414,
+      "price_thousands": 635.9563003671414
+    },
+    {
+      "km_driven": 25000,
+      "price": 615379.554460977,
+      "price_thousands": 615.3795544609769
+    },
+    {
+      "km_driven": 50000,
+      "price": 594802.8085548126,
+      "price_thousands": 594.8028085548126
+    },
+    {
+      "km_driven": 75000,
+      "price": 574226.0626486483,
+      "price_thousands": 574.2260626486483
+    },
+    {
+      "km_driven": 100000,
+      "price": 553649.3167424839,
+      "price_thousands": 553.6493167424838
+    },
+    {
+      "km_driven": 125000,
+      "price": 533072.5708363195,
+      "price_thousands": 533.0725708363195
+    },
+    {
+      "km_driven": 150000,
+      "price": 512495.82493015507,
+      "price_thousands": 512.4958249301551
+    },
+    {
+      "km_driven": 175000,
+      "price": 491919.07902399066,
+      "price_thousands": 491.91907902399066
+    },
+    {
+      "km_driven": 200000,
+      "price": 471342.33311782626,
+      "price_thousands": 471.3423331178263
+    },
+    {
+      "km_driven": 225000,
+      "price": 450765.58721166186,
+      "price_thousands": 450.76558721166185
+    },
+    {
+      "km_driven": 250000,
+      "price": 430188.8413054975,
+      "price_thousands": 430.18884130549753
+    },
+    {
+      "km_driven": 275000,
+      "price": 409612.09539933316,
+      "price_thousands": 409.61209539933316
+    },
+    {
+      "km_driven": 300000,
+      "price": 389035.3494931687,
+      "price_thousands": 389.0353494931687
+    }
+  ],
+  "power_dependency": [
+    {
+      "max_power": 40,
+      "price": 250932.67384199187,
+      "price_thousands": 250.93267384199186
+    },
+    {
+      "max_power": 60,
+      "price": 386251.3822515275,
+      "price_thousands": 386.2513822515275
+    },
+    {
+      "max_power": 80,
+      "price": 521570.09066106327,
+      "price_thousands": 521.5700906610633
+    },
+    {
+      "max_power": 100,
+      "price": 656888.799070599,
+      "price_thousands": 656.888799070599
+    },
+    {
+      "max_power": 120,
+      "price": 792207.5074801347,
+      "price_thousands": 792.2075074801347
+    },
+    {
+      "max_power": 140,
+      "price": 927526.2158896704,
+      "price_thousands": 927.5262158896704
+    },
+    {
+      "max_power": 160,
+      "price": 1062844.9242992061,
+      "price_thousands": 1062.844924299206
+    },
+    {
+      "max_power": 180,
+      "price": 1198163.6327087418,
+      "price_thousands": 1198.1636327087417
+    },
+    {
+      "max_power": 200,
+      "price": 1333482.3411182775,
+      "price_thousands": 1333.4823411182774
+    },
+    {
+      "max_power": 220,
+      "price": 1468801.0495278132,
+      "price_thousands": 1468.8010495278131
+    },
+    {
+      "max_power": 240,
+      "price": 1604119.757937349,
+      "price_thousands": 1604.1197579373488
+    }
+  ],
+  "coefficients": [
+    {
+      "feature": "year",
+      "coefficient": 136034.85924685013
+    },
+    {
+      "feature": "km_driven",
+      "coefficient": -49438.5071930956
+    },
+    {
+      "feature": "mileage",
+      "coefficient": -3557.39557577979
+    },
+    {
+      "feature": "engine",
+      "coefficient": 51430.17125409723
+    },
+    {
+      "feature": "max_power",
+      "coefficient": 214058.69776422862
+    },
+    {
+      "feature": "torque",
+      "coefficient": 95247.60759615774
+    },
+    {
+      "feature": "seats",
+      "coefficient": -30274.534648942492
+    },
+    {
+      "feature": "max_torque_rpm",
+      "coefficient": -18006.920358147476
+    }
+  ],
+  "stats": {
+    "model_type": "Ridge",
+    "alpha": 1000,
+    "n_features": 8,
+    "intercept": 522960.0910958871,
+    "features": [
+      "year",
+      "km_driven",
+      "mileage",
+      "engine",
+      "max_power",
+      "torque",
+      "seats",
+      "max_torque_rpm"
+    ],
+    "scaler_mean": [
+      2013.4284246575342,
+      73952.24246575343,
+      19.43084075342466,
+      1429.4489726027398,
+      87.90637071917807,
+      161.30957020547945,
+      5.426712328767123,
+      2902.9465753424656
+    ],
+    "scaler_scale": [
+      4.0952712771396,
+      60065.99320726995,
+      3.985631882404318,
+      485.62125102902905,
+      31.63770926875684,
+      91.16647986624395,
+      0.9822598417411335,
+      1038.2597333317588
+    ]
+  },
+  "base_params": {
+    "km_driven": 73952,
+    "mileage": 19.43,
+    "engine": 1429.45,
+    "max_power": 87.91,
+    "torque": 161.31,
+    "torque_rpm": 2902.95,
+    "seats": 5.43,
+    "year": 2015
+  }
+}
