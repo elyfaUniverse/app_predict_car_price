@@ -56,15 +56,15 @@
 
 **Вход (JSON):**
 ```json
-{
-  "year": 2020,
-  "km_driven": 45000,
-  "mileage": "18.5",
-  "engine": "1197",
-  "max_power": "85",
-  "torque": "115Nm@4000rpm",
-  "seats": 5
-}
+      {
+        "year": 2020,
+        "km_driven": 45000,
+        "mileage": "18.5",
+        "engine": "1197",
+        "max_power": "85",
+        "torque": "115Nm@4000rpm",
+        "seats": 5
+      }
 
  ```
 -**Эндпоинты:**
@@ -77,49 +77,47 @@
 1) **☄️ Сохранение модели и списка признаков из Colab**  
    В ноутбуке (после обучения лучшей модели) выполнен код:
 ```  
-from sklearn.linear_model import Ridge
-import joblib
-from google.colab import files
-
-best_ridge = Ridge(alpha=1000, random_state=42)
-best_ridge.fit(X_train_scaled, y_train)
-
-joblib.dump(best_ridge, 'model.pkl')
-print("✅ model.pkl сохранён")
-
-feature_cols = X_train_scaled.columns.tolist()
-joblib.dump(feature_cols, 'feature_cols.pkl')
-print("✅ feature_cols.pkl сохранён")
-
-files.download('model.pkl')
-files.download('feature_cols.pkl')
-
-print(f"✅ Модель сохранена! Признаков: {len(feature_cols)}")
-print(f"Признаки: {feature_cols}")
-
-# Сохраняем scaler 
-joblib.dump(scaler, 'scaler.pkl')
-files.download('scaler.pkl')
-print("✅ Scaler сохранён!")
+      from sklearn.linear_model import Ridge
+      import joblib
+      from google.colab import files
+      
+      best_ridge = Ridge(alpha=1000, random_state=42)
+      best_ridge.fit(X_train_scaled, y_train)
+      
+      joblib.dump(best_ridge, 'model.pkl')
+      print("✅ model.pkl сохранён")
+      
+      feature_cols = X_train_scaled.columns.tolist()
+      joblib.dump(feature_cols, 'feature_cols.pkl')
+      print("✅ feature_cols.pkl сохранён")
+      
+      files.download('model.pkl')
+      files.download('feature_cols.pkl')
+      
+      print(f"✅ Модель сохранена! Признаков: {len(feature_cols)}")
+      print(f"Признаки: {feature_cols}")
+      
+      # Сохраняем scaler 
+      joblib.dump(scaler, 'scaler.pkl')
+      files.download('scaler.pkl')
+      print("✅ Scaler сохранён!")
    ```
 
 
 2) **☄️ Настройка окружения и установка зависимостей**  
    В терминале последовательно выполнены команды:
    ```powershell
-   python -m venv venv
-   .\venv\Scripts\Activate.ps1
-   pip install fastapi uvicorn pandas numpy joblib scikit-learn
+       python -m venv venv
+       .\venv\Scripts\Activate.ps1
+       pip install fastapi uvicorn pandas numpy joblib scikit-learn
    ```
 
 3) **☄️ Запуск сервера**  
    В том же терминале (с активным окружением) выполнена команда:
    ```powershell
-   python -m uvicorn main:app --reload
+         python -m uvicorn main:app --reload
    ```
    После запуска появилось сообщение: `INFO: Uvicorn running on http://127.0.0.1:8000`
-
-
 
 
 ## 2. 🔵 Результаты
@@ -153,28 +151,10 @@ print("✅ Scaler сохранён!")
 
 ## 3. 🔵 Что дало наибольший буст в качестве
 
--  **Грамотная предобработка текстовых признаков** (извлечение чисел из `mileage`, `engine`, `max_power`, разделение `torque`) – без этого модель не работала.
+-  **Предобработка текстовых признаков** (извлечение чисел из `mileage`, `engine`, `max_power`, разделение `torque`) – без этого модель не работала.
 -  **Использование 8 исходных вещественных признаков** – добавление новых фич (квадрат года, мощность/объём, категории) не улучшило результат, а иногда ухудшало.
 -  **Отсутствие стандартизации** оказалось допустимым, так как линейная регрессия сама масштабирует коэффициенты. Стандартизация не меняет качество, но помогает интерпретации весов.
 
-## 4. 🔵 Что не вышло и почему 
 
-- ❌ **Категориальные признаки не улучшили модель** – вероятно, потому что в данных мало повторяющихся категорий (редкие топлива CNG/LPG, редкие типы продавцов) или потому что цена уже хорошо объясняется мощностью и годом.
-- ❌ **Регуляризация (Lasso, Ridge, ElasticNet) ухудшила качество** – данные не страдают от мультиколлинеарности, и обычная линейная регрессия уже оптимальна.
-- ❌ **Удаление выбросов** привело к падению R2 – дорогие машины (до 10 млн) оказались информативны для модели, их нельзя отбрасывать.
-- ❌ **L0-отбор признаков (5 из 8)** дал схожее качество, но не превзошёл полную модель.
-- ❌ **Long-tail в названиях автомобилей** – попытка использовать `name` (даже после сжатия) не улучшила прогноз.
 
-## 5. 🔵 Демо работы сервиса
-
--  Сервис запускается локально на порту 8000.
--  Пример запроса через PowerShell:
-  ```powershell
-  $body = '{"name": "Hyundai i20", "year": 2015, "selling_price": 500000, "km_driven": 55000, "fuel": "Petrol", "seller_type": "Individual", "transmission": "Manual", "owner": "First Owner", "mileage": "18.2 kmpl", "engine": "1197 CC", "max_power": "82 bhp", "torque": "115Nm@ 4000rpm", "seats": 5.0}'
-👉👉👉 Демонстрация работы
-▶ Записано видео (GIF) с последовательностью: открытие терминала → активация окружения → запуск сервера → отправка запроса → получение ответа.
-▶ Видео приложено к репозиторию как demo.gif.
-  Invoke-RestMethod -Uri "http://127.0.0.1:8000/predict_item" -Method Post -ContentType "application/json" -Body $body
-  ```
--  Сервер возвращает предсказанную цену (пример: `479142.83546605706`).
 
