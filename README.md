@@ -66,7 +66,7 @@
   "seats": 5
 }
 
-
+ ```
 -**Эндпоинты:**
 - `/predict` – принимает JSON одного автомобиля, возвращает предсказанную цену.
 - `/predict_csv` – принимает CSV-файл с объектами, возвращает CSV с добавленным столбцом `predicted_price`.
@@ -76,7 +76,7 @@
 
 1) **☄️ Сохранение модели и списка признаков из Colab**  
    В ноутбуке (после обучения лучшей модели) выполнен код:
-   ```
+```  
 from sklearn.linear_model import Ridge
 import joblib
 from google.colab import files
