@@ -73,7 +73,7 @@
 
 ---
 
-### 1.4. Сервис на FastAPI (код в api.py)
+### 1.4. Сервис на FastAPI 
 
 Сервис реализован в файле `api.py` с помощью **FastAPI** и **Pydantic**. В нём:
 
@@ -88,8 +88,56 @@
 | `/predict` | POST | Один объект `CarData` (JSON) | `{"predicted_price": число}` |
 | `/predict_batch` | POST | Список объектов `List[CarData]` (JSON) | `{"predictions": [числа]}` |
 | `/predict_csv` | POST | CSV-файл (`UploadFile`) | CSV-файл с новым столбцом `predicted_price` |
+## 🚀 Как запустить сервис FastAPI с нуля
 
-Код самого сервиса в файлк **api.py**:
+### 1. Сохраняем модель и скейлер из Colab
+После обучения лучшей модели выполняем в ноутбуке:
+
+```python
+from sklearn.linear_model import Ridge
+import joblib
+from google.colab import files
+
+best_ridge = Ridge(alpha=1000, random_state=42)
+best_ridge.fit(X_train_scaled, y_train)
+
+joblib.dump(best_ridge, 'model.pkl')
+feature_cols = X_train_scaled.columns.tolist()
+joblib.dump(feature_cols, 'feature_cols.pkl')
+joblib.dump(scaler, 'scaler.pkl')
+
+files.download('model.pkl')
+files.download('feature_cols.pkl')
+files.download('scaler.pkl')
+```
+
+Забираем скачанные файлы в папку с проектом .
+
+### 2. Настраиваем окружение и ставим библиотеки
+В терминале (на Windows):
+
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+pip install fastapi uvicorn pandas numpy joblib scikit-learn
+```
+
+### 3. Кладём код сервиса в файл `api.py`
+Копируем весь код из секции 1.4 в файл с именем `api.py`.
+
+### 4. Запускаем сервер
+```powershell
+python -m uvicorn api:app --reload
+```
+
+После этого сервис будет доступен по адресу `http://localhost:8000`, а документация с возможностью тестирования — на `http://localhost:8000/docs`.
+
+---
+
+
+
+
+
 
 
 
