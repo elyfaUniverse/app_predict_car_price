@@ -140,6 +140,8 @@ python -m uvicorn api:app --reload
 Я сделала отдельное веб-приложение на **Streamlit**, чтобы пользователь мог легко попробовать модель без программирования. 
 
 <img width="1355" height="814" alt="image" src="https://github.com/user-attachments/assets/00813581-0b9a-4bf1-b880-c2d57b9ab3e7" />
+<img width="1759" height="531" alt="image" src="https://github.com/user-attachments/assets/01472e9e-585f-474e-8462-c8eea7dc7b6f" />
+
 
 
 
