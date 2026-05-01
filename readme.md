@@ -1,7 +1,7 @@
 # 🚗 Отчёт по проекту: прогнозирование цены автомобиля
 
 ### Приложение на Streamlit нажми на кнопку 
-### 👉[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://appredictcarprice.streamlit.app/)
+### 👉[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://apppredictcarprice.streamlit.app/)
 
 ### Видео работы сервисов
 ### 👉 FastAPI (CSV): [Смотреть](https://cloud.mail.ru/public/ZKAp/ZWH2LjzD9)  
@@ -138,14 +138,11 @@ python -m uvicorn api:app --reload
 ### ✅ 5. Streamlit-приложение
 
 Я сделала отдельное веб-приложение на **Streamlit**, чтобы пользователь мог легко попробовать модель без программирования.  
-Оно загружает модель, скейлер и список признаков (те же `model.pkl`, `feature_cols.pkl`, `scaler.pkl`) и предлагает:
-
-- **Вкладка «Одно предсказание»** — форма с полями (год, пробег, расход, двигатель, мощность, крутящий момент, кол‑во мест). После нажатия кнопки показывается предсказанная цена.
-- **Вкладка «Загрузить CSV»** — загрузка CSV-файла с колонками как в тестовых данных и скачивание результата с дополнительным столбцом `predicted_price`.
-
+Оно загружает модель, скейлер и список признаков (те же `model.pkl`, `feature_cols.pkl`, `scaler.pkl`) 
 В основе используется ровно та же функция `preprocess_item`, что и в FastAPI, поэтому предсказания полностью совпадают.
-
 Приложение лежит в файле `app.py` .
+
+
 
 ### ✔️ Запуск локально
 ```powershell
@@ -187,7 +184,7 @@ streamlit run app.py
 
 Моё развёрнутое приложение живёт здесь:
 ### Приложение на Streamlit нажми на кнопку 
-👉👉👉[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://appredictcarprice.streamlit.app/)
+👉👉👉[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://apppredictcarprice.streamlit.app/)
 
 ---
 
