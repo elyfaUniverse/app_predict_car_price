@@ -1,12 +1,12 @@
 # 🚗 Отчёт по проекту: прогнозирование цены автомобиля
 
-### 👉 Приложение на Streamlit  
-[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://appredictcarprice.streamlit.app/)
+### Приложение на Streamlit нажми на кнопку 
+👉[![Streamlit App](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://appredictcarprice.streamlit.app/)
 
 ### Видео работы сервисов
-- FastAPI (CSV): [Смотреть](https://cloud.mail.ru/public/ZKAp/ZWH2LjzD9)  
-- FastAPI (JSON): [Смотреть](https://cloud.mail.ru/public/2C8j/q12xNSTAN)  
-- Streamlit-приложение: [Смотреть](https://cloud.mail.ru/public/SG9g/MEEhhq562)
+### 👉 FastAPI (CSV): [Смотреть](https://cloud.mail.ru/public/ZKAp/ZWH2LjzD9)  
+### 👉 FastAPI (JSON): [Смотреть](https://cloud.mail.ru/public/2C8j/q12xNSTAN)  
+### 👉 Streamlit-приложение: [Смотреть](https://cloud.mail.ru/public/SG9g/MEEhhq562)
 
 ---
 ## 📁 Структура проекта
@@ -26,21 +26,10 @@
 | **Аналитика и отчёты** | |
 | `homework_1_part_2_regression_with_inference.ipynb` | Полный ноутбук: EDA, предобработка, обучение, выводы |
 | `ydata_report.html` | Интерактивный профиль данных, созданный ydata-profiling |
-| `ydata_report.png` | Скриншот / экспорт профиля данных |
+| `ydata_report.png` | Скриншот Интерактивного профиля данных |
 | **Конфигурация** | |
-| `requirements.txt` | Все зависимости Python (FastAPI, streamlit, pandas, scikit-learn …) |
-| **Документация** | |
-| `README.md` | Главный файл описания проекта (вы сейчас здесь) |
-| `readme.md` | Черновик / дополнительная версия README |
-| `LICENSE` | Лицензия проекта |
+| `requirements.txt` | Все зависимости Python |
 
-### 🔍 Краткое описание
-
-- **`api.py`** — серверная часть. Принимает JSON одного автомобиля или CSV-файл, возвращает предсказанную цену. Валидация через Pydantic.
-- **`app.py`** — пользовательский интерфейс. Позволяет ввести параметры машины в веб‑форме или загрузить CSV и сразу получить результат.
-- **Артефакты** — три файла (`model.pkl`, `scaler.pkl`, `feature_cols.pkl`), необходимые для запуска любого из сервисов.
-- **`requirements.txt`** — устанавливает окружение одной командой `pip install -r requirements.txt`.
-- **Ноутбук и отчёты** — полный цикл анализа, экспериментов и экспорта модели для воспроизводимости.
 
 
 ## 1. Что я сделала
