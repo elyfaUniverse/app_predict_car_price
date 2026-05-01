@@ -8,7 +8,8 @@
 
 **👉👉👉 Демонстрация работы предсказания модели**
 
-- **FastAPI работа:**🔗 [Смотреть видео](https://cloud.mail.ru/public/TCKe/XVKRgmjRK) 
+- **FastAPI SCV работа:**🔗 [Смотреть видео](https://cloud.mail.ru/public/ZKAp/ZWH2LjzD9)
+- **FastAPI JSON работа:**🔗 [Смотреть видео](https://cloud.mail.ru/public/2C8j/q12xNSTAN) 
 - **Streamlit приложение:**🔗 [Смотреть видео](https://cloud.mail.ru/public/r4Mj/zqe8YaQRc) 
 
 ## 1.  🔵  Что было сделано
@@ -23,10 +24,9 @@
 ### 1.2. ✅ Предобработка данных
 -  Из колонок `mileage`, `engine`, `max_power` удалены единицы измерения с помощью регулярных выражений, значения преобразованы в `float`.
 -  Колонка `torque` разделена на два числовых признака: `torque` (крутящий момент) и `max_torque_rpm` (максимальные обороты).
--  Пропуски заполнены медианой по тренировочным данным – выбрана медиана из-за её устойчивости к выбросам.
--  Удалены дубликаты (полные копии строк) – их не оказалось.
+-  Пропуски заполнены медианой по тренировочным данным - выбрана медиана из-за её устойчивости к выбросам.
+-  Удалены дубликаты  – их не оказалось.
 -  Категориальные признаки (`fuel`, `seller_type`, `transmission`, `owner`, `name`) были обработаны: для `name` оставлены первые два слова и топ-10 частых значений, остальные заменены на «other». Затем применено OneHot-кодирование.
--  Созданы новые признаки: квадрат года, отношение мощности к объёму, пороговые признаки (пробег > 100 тыс. км, «старый владелец», «надёжный продавец» и др.).
 
 ### 1.3. ✅ Моделирование
 -  Обучались разные модели на стандартизированных и нестандартизированных признаках:
@@ -34,37 +34,77 @@
   - Lasso
   - Ridge
   - ElasticNet
-  - L0-регуляризация (жадный отбор признаков)
+  - L0-регуляризация 
 -  Для настройки гиперпараметров использовался `GridSearchCV` с 10 фолдами.
--  Качество оценивалось по R2 и MSE на train/test, а также по кастомной бизнес-метрике (доля предсказаний с относительной ошибкой ≤10%, с асимметричным штрафом за недопрогноз).
+-  Качество оценивалось по R2 и MSE на train/test
+
 
 ### 1.4. ✅ Сервис FastAPI
--  Реализован веб-сервис с эндпоинтами:
-  - `/predict_item` – принимает JSON одного автомобиля, возвращает предсказанную цену.
-  - `/predict_items` – принимает CSV-файл с несколькими объектами, возвращает CSV с добавленным столбцом `prediction`.
--  Код оформлен в виде `main.py`, модель и список признаков сохранены в `.pkl` файлы.
+
+**Проверка работы сервиса:** http://localhost:8000/docs
+
+#### 📊 Эндпоинты:
+
+| Эндпоинт | Метод | Описание |
+|----------|-------|----------|
+| `/predict` | POST | JSON одного автомобиля → предсказанная цена |
+| `/predict_csv` | POST | CSV файл → CSV с колонкой `predicted_price` |
+
+---
+
+#### 📝 Пример запроса `/predict`:
+
+**Вход (JSON):**
+```json
+{
+  "year": 2020,
+  "km_driven": 45000,
+  "mileage": "18.5",
+  "engine": "1197",
+  "max_power": "85",
+  "torque": "115Nm@4000rpm",
+  "seats": 5
+}
+
+
+-**Эндпоинты:**
+- `/predict` – принимает JSON одного автомобиля, возвращает предсказанную цену.
+- `/predict_csv` – принимает CSV-файл с объектами, возвращает CSV с добавленным столбцом `predicted_price`.
+-  Код оформлен в виде `app.py`, модель `model.pkl`, список признаков `feature_cols.pkl`  и `scaler.pkl` сохранены в файлы.
 
 ####  Пошаговая инструкция FastAPI
 
 1) **☄️ Сохранение модели и списка признаков из Colab**  
    В ноутбуке (после обучения лучшей модели) выполнен код:
-   ```python
-   import joblib
-   from google.colab import files
+   ```
+from sklearn.linear_model import Ridge
+import joblib
+from google.colab import files
 
-   joblib.dump(model, 'model.pkl')
-   joblib.dump(feature_cols, 'feature_cols.pkl')
-   files.download('model.pkl')
-   files.download('feature_cols.pkl')
+best_ridge = Ridge(alpha=1000, random_state=42)
+best_ridge.fit(X_train_scaled, y_train)
+
+joblib.dump(best_ridge, 'model.pkl')
+print("✅ model.pkl сохранён")
+
+feature_cols = X_train_scaled.columns.tolist()
+joblib.dump(feature_cols, 'feature_cols.pkl')
+print("✅ feature_cols.pkl сохранён")
+
+files.download('model.pkl')
+files.download('feature_cols.pkl')
+
+print(f"✅ Модель сохранена! Признаков: {len(feature_cols)}")
+print(f"Признаки: {feature_cols}")
+
+# Сохраняем scaler 
+joblib.dump(scaler, 'scaler.pkl')
+files.download('scaler.pkl')
+print("✅ Scaler сохранён!")
    ```
 
-2) **☄️ Работа в VS Code (локально)**  
-    Создана папка проекта: `C:\Users\Elvira\Desktop\ВШЭ\LEARN\homework 1`.  
-    В папку скопированы `model.pkl` и `feature_cols.pkl`.  
-    В VS Code создан файл `main.py` с кодом сервиса.  
-    Открыт терминал в VS Code (PowerShell).
 
-3) **☄️ Настройка окружения и установка зависимостей**  
+2) **☄️ Настройка окружения и установка зависимостей**  
    В терминале последовательно выполнены команды:
    ```powershell
    python -m venv venv
@@ -72,24 +112,15 @@
    pip install fastapi uvicorn pandas numpy joblib scikit-learn
    ```
 
-4) **☄️ Запуск сервера**  
+3) **☄️ Запуск сервера**  
    В том же терминале (с активным окружением) выполнена команда:
    ```powershell
    python -m uvicorn main:app --reload
    ```
    После запуска появилось сообщение: `INFO: Uvicorn running on http://127.0.0.1:8000`
 
-5) **☄️ Тестирование эндпоинта**  
-   Открыт **новый терминал**, активировано окружение и отправлен POST-запрос:
-   ```powershell
-   $body = '{"name": "Hyundai i20", "year": 2015, "selling_price": 500000, "km_driven": 55000, "fuel": "Petrol", "seller_type": "Individual", "transmission": "Manual", "owner": "First Owner", "mileage": "18.2 kmpl", "engine": "1197 CC", "max_power": "82 bhp", "torque": "115Nm@ 4000rpm", "seats": 5.0}'
-   Invoke-RestMethod -Uri "http://127.0.0.1:8000/predict_item" -Method Post -ContentType "application/json" -Body $body
-   ```
-   Сервер вернул предсказанную цену: `479142.83546605706`.
 
-6) **👉👉👉 Демонстрация работы**  
-   ▶ Записано видео (GIF) с последовательностью: открытие терминала → активация окружения → запуск сервера → отправка запроса → получение ответа.  
-   ▶ Видео приложено к репозиторию как `demo.gif`.
+
 
 ## 2. 🔵 Результаты
 
