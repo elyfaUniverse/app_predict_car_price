@@ -7,7 +7,7 @@ import numpy as np
 import os
 
 st.set_page_config(page_title="Car Price Predictor", layout="wide")
-st.title("🚗 Предсказание цены автомобиля")
+st.title("Предсказание цены автомобиля")
 st.markdown("---")
 
 # ЗАГРУЗКА МОДЕЛИ
@@ -33,7 +33,7 @@ model, FEATURE_COLS, SCALER = load_model()
 plot_data = load_plot_data()
 
 if plot_data:
-    st.success(f"✅ Модель Ridge загружена. Признаков: {len(FEATURE_COLS)}")
+    st.success(f" Модель Ridge загружена. Признаков: {len(FEATURE_COLS)}")
 
 # ФУНКЦИЯ ПРЕДСКАЗАНИЯ 
 def preprocess_input(year, km_driven, mileage_str, engine_str, max_power_str, torque_str, seats):
@@ -172,7 +172,7 @@ if plot_data:
         st.plotly_chart(fig4, use_container_width=True)
     
     # Информация о модели
-    with st.expander("ℹ️ Информация о модели"):
+    with st.expander(" Информация о модели"):
         st.write(f"**Тип модели:** {plot_data['stats']['model_type']}")
         st.write(f"**Alpha (регуляризация):** {plot_data['stats']['alpha']}")
         st.write(f"**Количество признаков:** {plot_data['stats']['n_features']}")
@@ -186,7 +186,7 @@ if plot_data:
         st.json(plot_data['base_params'])
 
 else:
-    st.error("⚠️ Не удалось загрузить данные для графиков. Убедитесь, что файл data_for_plot.json находится в той же папке.")
+    st.error(" Не удалось загрузить данные для графиков. Убедитесь, что файл data_for_plot.json находится в той же папке.")
 
 st.markdown("---")
 
@@ -216,7 +216,7 @@ with st.expander("Или введите данные в формате JSON"):
                     st.error(f"Отсутствуют поля: {missing}")
                 else:
                     price = predict_price_from_dict(data)
-                    st.success(f"💰 Предсказанная цена: {price:,.0f} ₽")
+                    st.success(f" Предсказанная цена: {price:,.0f} ₽")
                     
                     if plot_data and 'coefficients' in plot_data:
                         st.markdown("---")
